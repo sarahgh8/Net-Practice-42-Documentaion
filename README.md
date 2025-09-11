@@ -1,6 +1,8 @@
 # Net-Practice-42-Documentaion
 A documentaion for the requirements of net-practice.
 
+By `sghunmin`
+
 ## What is TCP/IP
 TCP/IP is an internet protocol, basically a set of rules to transmit data, it's reliable when it comes to sending data but not fast as UDP, it's a part of the transport layer.
 
@@ -26,6 +28,31 @@ tells us that the first 24 bits belong to the netowrk address,
 which is [192.168.1], and the rest is the Host (Device) address in the network [.15]
 ```
 ![Alt text](https://cdn-fainj.nitrocdn.com/HMhNvtGdkXCThiYKondeUNdKlFRQtHkp/assets/images/optimized/rev-50e11d1/www.auvik.com/wp-content/uploads/2024/05/AVK-2024-Subnet-Mask-Blog-Graphics_Graph-2-1024x392.jpg)
+
+## How to calculate the number of IP knowing the SUBNET Mask
+First Check the last number of the dotted subnet mask,
+or the /NUMBER notation, basically it tells you how many
+bits you have to get IP addresses...
+```
+ Saying that An IP address have 32 bits, if the subnet mask is /30 then we have 2 bits left to get a number of IP addresses, 2 bits make 4 numbers so in that case we have 4 IP addresses, and so on..
+if we get the subnet mask as 255.255.255.252, then we do
+256 - 252 = 4, then we have 4 IPs, 2 are usable.
+``` 
+
+### What about determining the network ID and the Broadcast
+suppose we have `192.168.1.34/30` since that the subnet mask is 30, then we only have 4 IPs, the host ID is 34, we look for the nearest number to 34 that is divisible by 4, which is `32` that way we know that:
+```
+192.168.1.32 --> Network ID
+192.168.1.33 --> usable IP
+192.168.1.34 --> usable IP
+192.168.1.35 --> Broadcast
+```
+Now we have 4 IPs and we know which are usable and which are not
+
+
+
+
+
 
 ### Notes:
 1. Loopback IP is the localhost IP `127.0.0.1`
